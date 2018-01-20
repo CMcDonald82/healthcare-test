@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Card, CardTitle, CardText, Button, List, ListItem } from 'react-md';
+import { Card, CardTitle, List, ListItem } from 'react-md';
 
 
 class Step3Container extends Component {
@@ -9,6 +9,7 @@ class Step3Container extends Component {
     super(props);
     
     this.getSymptomDetail = this.getSymptomDetail.bind(this);
+    this.incrementDiagnosisFrequency = this.incrementDiagnosisFrequency.bind(this);
 
     this.state = {
       symptom: {
@@ -29,8 +30,8 @@ class Step3Container extends Component {
     const diagnosesList = symptom.diagnoses;
 
     let diagnosesListItems = [];
-    for (let [i, k] of Object.keys(diagnosesList).entries()) {
-      diagnosesListItems.push(<ListItem key={diagnosesList[i].id} primaryText={diagnosesList[i].name} secondaryText={diagnosesList[i].frequency || "0"} onClick={() => this.incrementDiagnosisFrequency(diagnosesList[i].id)} />);
+    for (let [i, _] of Object.keys(diagnosesList).entries()) {
+      diagnosesListItems.push(<ListItem key={diagnosesList[i].id} primaryText={diagnosesList[i].name} secondaryText={diagnosesList[i].frequency || "0"} onClick={() => this.incrementDiagnosisFrequency(diagnosesList[i])} />);
     };
 
     return (
@@ -56,12 +57,16 @@ class Step3Container extends Component {
       })
   };
 
-  incrementDiagnosisFrequency(diagnosisId) {
+  incrementDiagnosisFrequency(diagnosis) {
     const { symptom } = this.state;
     let self = this;
     return axios
       // .post('/symptoms/' + symptom.id + '/diagnosis/' + topDiagnosisId, {})
-      .put('/api/diagnosis/' + diagnosisId, {})
+      .put('/api/diagnosis/' + diagnosis.id + '/', {
+        "name": diagnosis.name,
+        "frequency": diagnosis.frequency + 1,
+        "symptom": diagnosis.symptom
+      })
       .then(function (response) {
         self.props.history.push('/symptoms/' + symptom.id + '/final-report');
       })

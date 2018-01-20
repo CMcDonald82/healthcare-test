@@ -27,7 +27,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Step1Container} />
-            <Route path="/symptoms/:id" component={Step2Container} />
+            <Route exact path="/symptoms/:id" component={Step2Container} />
             <Route path="/symptoms/:id/full-list" component={Step3Container} />
             
           </div>

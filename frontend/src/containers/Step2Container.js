@@ -56,7 +56,7 @@ class Step2Container extends Component {
 
   navigateToStep3() {
     const { symptom } = this.state;
-    this.props.history.push('/symptoms/' + symptom.id + '/diagnoses');
+    this.props.history.push('/symptoms/' + symptom.id + '/full-list');
   };
 
   getSymptomDetail(symptomId) {
@@ -74,11 +74,18 @@ class Step2Container extends Component {
   incrementDiagnosisFrequency() {
     const { symptom, topDiagnosis } = this.state;
     const topDiagnosisId = isEmpty(topDiagnosis) ? "" : topDiagnosis.id;
+    const topDiagnosisName = isEmpty(topDiagnosis) ? "" : topDiagnosis.name;
+    const topDiagnosisFrequency = isEmpty(topDiagnosis) ? "" : topDiagnosis.frequency;
+    const topDiagnosisSymptom = isEmpty(topDiagnosis) ? "" : topDiagnosis.symptom;
     console.log('topDiagnosisId: ', topDiagnosisId);
     let self = this;
     return axios
       // .post('/symptoms/' + symptom.id + '/diagnosis/' + topDiagnosisId, {})
-      .put('/api/diagnosis/' + topDiagnosisId, {})
+      .put('/api/diagnosis/' + topDiagnosisId + '/', {
+        "name": topDiagnosisName,
+        "frequency": topDiagnosisFrequency + 1,
+        "symptom": topDiagnosisSymptom,
+      })
       .then(function (response) {
         self.props.history.push('/symptoms/' + symptom.id + '/final-report');
       })

@@ -46,9 +46,21 @@ class DiagnosisDetail(APIView):
 
     def put(self, request, pk, format=None):
         diagnosis = self.get_object(pk)
-        diagnosis.frequency += 1
-        serializer = DiagnosisSerializer(diagnosis)
+        # diagnosis.frequency += 1
+        print("request.data: ", request.data)
+        # data = {
+        #     "name": diagnosis.name,
+        #     "frequency": diagnosis.frequency + 1,
+        #     "symptom": diagnosis.symptom
+        # }
+        serializer = DiagnosisSerializer(diagnosis, data=request.data)
+        print("serializer.is_valid(): ", serializer.is_valid())
         if serializer.is_valid():
             serializer.save()
+            print("serializer: ", serializer.data)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
