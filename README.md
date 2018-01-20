@@ -6,9 +6,9 @@ Test app for finding diagnoses for symptoms
 This project uses Django 2.0 which requires Python 3.4, 3.5, or 3.6
 See [this link](https://docs.djangoproject.com/en/2.0/faq/install/#faq-python-version-support) for details.
 
-If you do not have one of those versions of Python 3 installed on your system, I would recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+If you do not have one of those versions of Python 3 installed on your system, I would recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) for managing Python versions and packages.
 
-A recent version of Node is also required for running npm commands. My system has v8.9.4 installed (version 8.x is the latest LTS (stable) according to the [Node.js Foundation Release Working Group](https://github.com/nodejs/Release) ).
+A recent version of Node is also required for running npm commands. My system has v8.9.4 installed (version 8.x is the latest LTS (stable) release according to the [Node.js Foundation Release Working Group](https://github.com/nodejs/Release) ).
 
 I would recommend [nvm](https://github.com/creationix/nvm) for managing Node versions.
 
