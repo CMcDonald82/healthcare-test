@@ -31,3 +31,24 @@ class SymptomDetail(APIView):
         symptom = self.get_object(pk)
         serializer = SymptomSerializer(symptom)
         return Response(serializer.data)
+
+
+class DiagnosisDetail(APIView):
+    """
+    Put a change to a diagnosis' frequency. The frequency will be incremented by 1 to indicate
+    that the user has picked this diagnosis for their symptom
+    """
+    def get_object(self, pk):
+        try:
+            return Diagnosis.objects.get(pk=pk)
+        except Diagnosis.DoesNotExist:
+            raise Http404
+
+    def put(self, request, pk, format=None):
+        diagnosis = self.get_object(pk)
+        diagnosis.frequency += 1
+        serializer = DiagnosisSerializer(diagnosis)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
