@@ -48,7 +48,7 @@ npm start
 API tests for the backend are included. To run these:
 
 ```
-cd backend/api
+cd backend
 python manage.py test api
 ```
 
