@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Button } from 'react-md';
 import Step1Container from './containers/Step1Container';
 import Step2Container from './containers/Step2Container';
+import Step3Container from './containers/Step3Container';
 import './App.css';
 
 
@@ -27,7 +28,8 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Step1Container} />
             <Route path="/symptoms/:id" component={Step2Container} />
-
+            <Route path="/symptoms/:id/full-list" component={Step3Container} />
+            
           </div>
         </BrowserRouter>
 

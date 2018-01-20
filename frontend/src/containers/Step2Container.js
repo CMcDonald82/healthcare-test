@@ -15,7 +15,8 @@ class Step2Container extends Component {
     this.state = {
       // symptom: {}
       symptom: {
-        name: ""
+        name: "",
+        diagnoses: []
       },
       topDiagnosis: {
         name: "",
@@ -77,9 +78,9 @@ class Step2Container extends Component {
     let self = this;
     return axios
       // .post('/symptoms/' + symptom.id + '/diagnosis/' + topDiagnosisId, {})
-      .post('/diagnosis/' + topDiagnosisId, {})
+      .put('/api/diagnosis/' + topDiagnosisId, {})
       .then(function (response) {
-        self.props.history.push('/symptoms/' + symptom.id + '/final');
+        self.props.history.push('/symptoms/' + symptom.id + '/final-report');
       })
   };
 
