@@ -57,10 +57,11 @@ python manage.py test api
 A SQLite database file is included by default. If this file gets removed for any reason and the database needs to be reset, there is a management command to seed the db with the data from the symptoms.txt file. This command can be run after the database is migrated and reset.
 
 To reset and recreate the database:
-Delete everything except the __init__.py file from the migration folder in all django apps, then run the following from the backend/api directory:
+Delete everything except the __init__.py file from the migration folder in all django apps, then run the following from the backend directory:
 
 ```
-python manage.py makemigrations
+cd backend
+python manage.py makemigrations api
 python manage.py migrate
 ```
 
