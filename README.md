@@ -65,8 +65,9 @@ python manage.py makemigrations api
 python manage.py migrate
 ```
 
-To seed the database using the custom management command included in this repo, run the following from the backend/api directory:
+To seed the database using the custom management command included in this repo, run the following from the backend directory:
 
 ```
+cd backend
 python manage.py seed_db
 ```

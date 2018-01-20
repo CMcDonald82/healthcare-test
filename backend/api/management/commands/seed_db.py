@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from diagnosis.models import Symptom, Diagnosis
+from api.models import Symptom, Diagnosis
 from django.db import transaction
 import csv
 
@@ -12,5 +12,5 @@ class Command(BaseCommand):
             for row in reader:
                 with transaction.atomic():
                     symp = Symptom.objects.create(name=row[0].lstrip())
-                    symp.diagnosis_set.set([Diagnosis.objects.create(name=diag.lstrip(), symptom=symp) for diag in row[1:]])
+                    symp.diagnoses.set([Diagnosis.objects.create(name=diag.lstrip(), symptom=symp) for diag in row[1:]])
                 self.stdout.write("Row: %s" % row)
