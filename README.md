@@ -39,6 +39,7 @@ python manage.py runserver
 
 * Open another terminal window and start the frontend dev server
 ```
+cd frontend
 npm start
 ``` 
 

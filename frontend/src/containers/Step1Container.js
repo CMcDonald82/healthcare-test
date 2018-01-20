@@ -18,7 +18,7 @@ class Step1Container extends Component {
   };
 
   componentDidMount() {
-    this.fetchSymptomsList();
+    this.getSymptomsList();
   };
 
   render() {
@@ -52,7 +52,7 @@ class Step1Container extends Component {
     this.props.history.push('symptoms/' + selectedSymptomId);
   };
 
-  fetchSymptomsList() {
+  getSymptomsList() {
     let self = this;
     return axios
       .get('/api/symptoms')

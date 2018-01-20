@@ -3,6 +3,7 @@ import WebFontLoader from 'webfontloader';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Button } from 'react-md';
 import Step1Container from './containers/Step1Container';
+import Step2Container from './containers/Step2Container';
 import './App.css';
 
 
@@ -19,12 +20,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome To The Diagnosis App</h1>
+          <Button flat primary href={'/'}>Reset</Button>
         </header>
 
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Step1Container} />
-            
+            <Route path="/symptoms/:id" component={Step2Container} />
+
           </div>
         </BrowserRouter>
 

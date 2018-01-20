@@ -16,9 +16,9 @@ class SymptomSerializer(serializers.ModelSerializer):
         depth: 2
 
 
-class SymptomListSerializer(serializers.ModelSerializer):
-    label = serializers.CharField(source='name')
-    value = serializers.IntegerField(source='id')
-    class Meta:
-        model = Symptom
-        fields = ('label', 'value')
+# class SymptomListSerializer(serializers.ModelSerializer):
+#     label = serializers.CharField(source='name')
+#     value = serializers.IntegerField(source='id')
+#     class Meta:
+#         model = Symptom
+#         fields = ('label', 'value')
