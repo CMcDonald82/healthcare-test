@@ -33,6 +33,7 @@ npm install
 
 * Open one terminal window and start the backend dev server
 ```
+cd backend
 python manage.py runserver
 ```
 

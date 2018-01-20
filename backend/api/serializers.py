@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from diagnosis.models import Symptom, Diagnosis
+from api.models import Symptom, Diagnosis
 
 
 class DiagnosisSerializer(serializers.ModelSerializer):
@@ -14,7 +14,7 @@ class SymptomSerializer(serializers.ModelSerializer):
         model = Symptom
         fields = '__all__'
         depth: 2
-        
+
 
 class SymptomListSerializer(serializers.ModelSerializer):
     label = serializers.CharField(source='name')
