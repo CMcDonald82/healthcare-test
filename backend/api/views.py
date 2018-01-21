@@ -5,6 +5,7 @@ from api.serializers import SymptomSerializer, DiagnosisSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import json
 
 
 class SymptomList(APIView):
@@ -44,22 +45,29 @@ class DiagnosisDetail(APIView):
         except Diagnosis.DoesNotExist:
             raise Http404
 
-    def put(self, request, pk, format=None):
+    def patch(self, request, pk, format=None):
         diagnosis = self.get_object(pk)
         # diagnosis.frequency += 1
         print("request.data: ", request.data)
+        if request.data['increment_frequency']:
+            print("Incrementing by 1")
+            diagnosis.frequency += 1
+            diagnosis.save()
+            serializer = DiagnosisSerializer(diagnosis)
+            return JsonResponse(serializer.data)
         # data = {
         #     "name": diagnosis.name,
         #     "frequency": diagnosis.frequency + 1,
         #     "symptom": diagnosis.symptom
         # }
-        serializer = DiagnosisSerializer(diagnosis, data=request.data)
-        print("serializer.is_valid(): ", serializer.is_valid())
-        if serializer.is_valid():
-            serializer.save()
-            print("serializer: ", serializer.data)
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        # serializer = DiagnosisSerializer(diagnosis, data=diagnosis)
+        # print("serializer.is_valid(): ", serializer.is_valid())
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     print("serializer: ", serializer.data)
+        #     return Response(serializer.data)
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 

@@ -1082,7 +1082,7 @@ a.md-btn {
   background: rgba(0, 173, 239, 0.12); }
 
 .md-btn--color-secondary-active {
-  background: rgba(62, 199, 183, 0.12); }
+  background: rgba(255, 0, 0, 0.12); }
 
 .md-btn--text {
   border-radius: 2px;
@@ -1461,7 +1461,7 @@ tbody .md-table-row {
     margin-left: 8px; }
 
 .md-card-title--contextual {
-  background: #3ec7b7;
+  background: red;
   height: 100%;
   left: 0;
   position: absolute;
@@ -1470,7 +1470,7 @@ tbody .md-table-row {
   z-index: 1; }
 
 .md-card-title--title-contextual {
-  color: #3ec7b7;
+  color: red;
   font-size: 16px;
   font-weight: 500;
   line-height: 80px; }
@@ -2464,7 +2464,7 @@ svg.md-icon {
 
 .md-circular-progress-path {
   fill: none;
-  stroke: #3ec7b7;
+  stroke: red;
   stroke-dasharray: 187px; }
 
 .md-circular-progress-path--animated {
@@ -2493,14 +2493,14 @@ svg.md-icon {
     stroke-dashoffset: 187px; } }
 
 .md-progress--linear {
-  background: #3ec7b7;
+  background: red;
   height: 3px;
   overflow: hidden;
   position: relative;
   width: 100%; }
 
 .md-progress--linear-active {
-  background: #3ec7b7; }
+  background: red; }
 
 .md-progress--linear-determinate {
   height: 100%;
@@ -2625,7 +2625,7 @@ svg.md-icon {
   width: 40px; }
 
 .md-switch-track--on {
-  background: rgba(62, 199, 183, 0.5); }
+  background: rgba(255, 0, 0, 0.5); }
 
 .md-switch-track--off {
   background: rgba(0, 0, 0, 0.38); }
@@ -2645,7 +2645,7 @@ svg.md-icon {
   width: 24px; }
 
 .md-switch-thumb--on {
-  background: #3ec7b7;
+  background: red;
   transform: translate3d(20px, -4px, 0); }
 
 .md-switch-thumb--off {
@@ -2987,7 +2987,7 @@ svg.md-icon {
     color: rgba(255, 255, 255, 0.7); }
 
 .md-tab-indicator {
-  background: #3ec7b7;
+  background: red;
   bottom: 0;
   content: '';
   height: 2px;
@@ -3596,7 +3596,7 @@ svg.md-icon {
   .md-text--theme-primary {
     color: #00ADEF; }
   .md-text--theme-secondary {
-    color: #3ec7b7; }
+    color: red; }
   .md-text--error {
     color: #f44336; }
   .md-text--inherit.md-text--inherit {
@@ -3606,7 +3606,7 @@ svg.md-icon {
   background: rgba(0, 173, 239, 0.26); }
 
 .md-ink--secondary .md-ink {
-  background: rgba(62, 199, 183, 0.26); }
+  background: rgba(255, 0, 0, 0.26); }
 
 .md-background {
   background: #fafafa; }
@@ -3616,14 +3616,14 @@ svg.md-icon {
     background: #00ADEF;
     color: #fff; }
   .md-background--secondary {
-    background: #3ec7b7;
+    background: red;
     color: #fff; }
 
 @media screen and (min-width: 1025px) {
   .md-background--primary-hover:hover {
     background: rgba(0, 173, 239, 0.9); }
   .md-background--secondary-hover:hover {
-    background: rgba(62, 199, 183, 0.9); } }
+    background: rgba(255, 0, 0, 0.9); } }
 
 body {
   margin: 0;

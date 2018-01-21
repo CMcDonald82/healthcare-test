@@ -61,11 +61,8 @@ class Step3Container extends Component {
     const { symptom } = this.state;
     let self = this;
     return axios
-      // .post('/symptoms/' + symptom.id + '/diagnosis/' + topDiagnosisId, {})
-      .put('/api/diagnosis/' + diagnosis.id + '/', {
-        "name": diagnosis.name,
-        "frequency": diagnosis.frequency + 1,
-        "symptom": diagnosis.symptom
+      .patch('/api/diagnosis/' + diagnosis.id + '/', {
+        "increment_frequency": true
       })
       .then(function (response) {
         self.props.history.push('/symptoms/' + symptom.id + '/final-report');
