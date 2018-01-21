@@ -22,10 +22,8 @@ class Step1Container extends Component {
   };
 
   render() {
-    console.log("symptomsList: ", this.state.symptomsList);
-    console.log("selectedSymptomId: ", this.state.selectedSymptomId);
     const isDisabled = this.state.selectedSymptomId ? false : true;
-    // Maybe try putting loading spinners in all containers
+    
     return (
       <div className="md-grid">
         <Card className="md-block-centered md-cell--8">

@@ -13,7 +13,6 @@ class Step4Container extends Component {
 
     this.state = {
       symptom: null
-      // diagnoses: null
     };
   };
 
@@ -27,7 +26,7 @@ class Step4Container extends Component {
     const { symptom } = this.state;
     const symptomName = isEmpty(symptom) ? "" : symptom.name;
     const diagnosesList = isEmpty(symptom) ? "" : symptom.diagnoses;
-    // const diagnosesList = diagnoses ? diagnoses : [];
+  
     let diagnosesListItems = [];
 
     for (let [i] of Object.keys(diagnosesList).entries()) {
@@ -58,7 +57,6 @@ class Step4Container extends Component {
       .then(function (response) {
         self.setState({
           symptom: response.data
-          // diagnoses: response.data.diagnoses
         });
       })
   };

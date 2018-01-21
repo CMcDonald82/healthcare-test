@@ -14,11 +14,3 @@ class SymptomSerializer(serializers.ModelSerializer):
         model = Symptom
         fields = '__all__'
         depth: 2
-
-
-# class SymptomListSerializer(serializers.ModelSerializer):
-#     label = serializers.CharField(source='name')
-#     value = serializers.IntegerField(source='id')
-#     class Meta:
-#         model = Symptom
-#         fields = ('label', 'value')

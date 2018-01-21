@@ -47,27 +47,14 @@ class DiagnosisDetail(APIView):
 
     def patch(self, request, pk, format=None):
         diagnosis = self.get_object(pk)
-        # diagnosis.frequency += 1
-        print("request.data: ", request.data)
-        if request.data['increment_frequency']:
-            print("Incrementing by 1")
+        
+        if request.data.get('increment_frequency'):
             diagnosis.frequency += 1
             diagnosis.save()
-            serializer = DiagnosisSerializer(diagnosis)
-            return JsonResponse(serializer.data)
-        # data = {
-        #     "name": diagnosis.name,
-        #     "frequency": diagnosis.frequency + 1,
-        #     "symptom": diagnosis.symptom
-        # }
+
+        serializer = DiagnosisSerializer(diagnosis)
+        return JsonResponse(serializer.data)
         
-        # serializer = DiagnosisSerializer(diagnosis, data=diagnosis)
-        # print("serializer.is_valid(): ", serializer.is_valid())
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     print("serializer: ", serializer.data)
-        #     return Response(serializer.data)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 

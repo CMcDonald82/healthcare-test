@@ -28,16 +28,13 @@ class Step2Container extends Component {
   componentDidMount() {
     const { match } = this.props;
     const symptomId = match.params.id;
-    console.log("symptomId: ", symptomId);
     this.getSymptomDetail(symptomId);
   };
 
   render() {
     const { symptom, topDiagnosis } = this.state;
-    console.log("symptom: ", symptom);
     const symptomName = isEmpty(symptom) ? "" : symptom.name;
     const topDiagnosisName = isEmpty(topDiagnosis) ? "" : topDiagnosis.name;
-    console.log("topDiagnosis: ", topDiagnosis);
     
     return (
       <div className="md-grid">
@@ -74,7 +71,7 @@ class Step2Container extends Component {
   incrementDiagnosisFrequency() {
     const { symptom, topDiagnosis } = this.state;
     const topDiagnosisId = isEmpty(topDiagnosis) ? "" : topDiagnosis.id;
-    console.log('topDiagnosisId: ', topDiagnosisId);
+
     let self = this;
     return axios
       .patch('/api/diagnosis/' + topDiagnosisId + '/', {
@@ -86,12 +83,9 @@ class Step2Container extends Component {
   };
 
   getRandomDiagnosis(diagnoses) {
-    console.log("random diagnoses: ", diagnoses);
     const max_frequency = diagnoses[0].frequency;
     const top_diagnoses = diagnoses.filter(diagnosis => diagnosis.frequency === max_frequency);
-    console.log("top_diagnoses: ", top_diagnoses);
     const random_diagnosis = top_diagnoses[Math.floor(Math.random() * top_diagnoses.length)];
-    console.log("random_diagnosis: ", random_diagnosis);
     return random_diagnosis;
   };
 
