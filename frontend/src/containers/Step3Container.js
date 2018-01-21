@@ -30,8 +30,9 @@ class Step3Container extends Component {
     const diagnosesList = symptom.diagnoses;
 
     let diagnosesListItems = [];
-    for (let [i, _] of Object.keys(diagnosesList).entries()) {
-      diagnosesListItems.push(<ListItem key={diagnosesList[i].id} primaryText={diagnosesList[i].name} secondaryText={diagnosesList[i].frequency || "0"} onClick={() => this.incrementDiagnosisFrequency(diagnosesList[i])} />);
+    for (let [i] of Object.keys(diagnosesList).entries()) {
+      let diagnosis = diagnosesList[i];
+      diagnosesListItems.push(<ListItem key={diagnosis.id} primaryText={diagnosis.name} secondaryText={diagnosis.frequency || "0"} onClick={() => this.incrementDiagnosisFrequency(diagnosis)} />);
     };
 
     return (

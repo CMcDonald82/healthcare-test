@@ -5,6 +5,7 @@ import { Button } from 'react-md';
 import Step1Container from './containers/Step1Container';
 import Step2Container from './containers/Step2Container';
 import Step3Container from './containers/Step3Container';
+import Step4Container from './containers/Step4Container';
 import './App.css';
 
 
@@ -29,7 +30,7 @@ class App extends Component {
             <Route exact path="/" component={Step1Container} />
             <Route exact path="/symptoms/:id" component={Step2Container} />
             <Route path="/symptoms/:id/full-list" component={Step3Container} />
-            
+            <Route path="/symptoms/:id/final-report" component={Step4Container} />
           </div>
         </BrowserRouter>
 
