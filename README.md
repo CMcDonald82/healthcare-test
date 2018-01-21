@@ -12,6 +12,7 @@ A recent version of Node is also required for running npm commands. My system ha
 
 I would recommend [nvm](https://github.com/creationix/nvm) for managing Node versions.
 
+NOTE: All 'cd' commands specified should be run from the top-level directory of the project (i.e. 'healthcare-test')
 
 ## Usage
 
